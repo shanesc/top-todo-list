@@ -17,6 +17,8 @@ html {
 
 body {
   box-sizing: border-box;
+  padding: 2rem;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
   font-weight: 400;
@@ -25,4 +27,21 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+.todo-list {
+  border: 2px solid black;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 30%;
+}
+
+.todo-list > li {
+  background: grey;
+  padding: 2rem 3.5rem;
 }
