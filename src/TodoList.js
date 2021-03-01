@@ -20,6 +20,15 @@ class TodoList {
     return this;
   }
 
+  deleteTodo(title) {
+    const updatedList = this._list.filter((todo) => {
+      return todo.title !== title;
+    });
+
+    this._list = updatedList;
+    return this;
+  }
+
   get list() {
     return this._list;
   }
