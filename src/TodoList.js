@@ -7,35 +7,32 @@ class TodoList {
 
   addTodo(todo) {
     this._list.push(todo);
+    return this;
   }
 
-  // _createTodo(title, description, dueDate, priority) {
-  //   return new Todo(title, description, dueDate, priority);
-  // }
+  deleteTodo(todo) {
+    const title = todo.title;
+    const updatedList = this._list.filter((todo) => {
+      return todo.title !== title;
+    });
 
-  // addTodo(title, description, dueDate, priority) {
-  //   const todo = this._createTodo(
-  //     title,
-  //     description,
-  //     dueDate,
-  //     priority
-  //   );
-  //   this._list.push(todo);
-  //   return this;
-  // }
+    this._list = updatedList;
+    return this;
+  }
 
-  // deleteTodo(title) {
-  //   const updatedList = this._list.filter((todo) => {
-  //     return todo.title !== title;
-  //   });
+  updateTodo(todo, updatedTodo) {
+    const title = todo.title;
+    const updatedList = this._list.map((todo) => {
+      if (todo.title === title) {
+        return updatedTodo;
+      } else {
+        return todo;
+      }
+    });
 
-  //   this._list = updatedList;
-  //   return this;
-  // }
-
-  // get list() {
-  //   return this._list;
-  // }
+    this._list = updatedList;
+    return this;
+  }
 }
 
 export default TodoList;
