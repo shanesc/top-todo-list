@@ -1,5 +1,4 @@
-import Todo from './Todo';
-
+import DOMHandler from './DOMHandler';
 class TodoList {
   constructor() {
     this._list = [];
@@ -7,6 +6,7 @@ class TodoList {
 
   addTodo(todo) {
     this._list.push(todo);
+    DOMHandler.addTodo(todo);
     return this;
   }
 
