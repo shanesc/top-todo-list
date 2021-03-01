@@ -1,9 +1,14 @@
+// function Todo(_title) {
+//   return {
+//     get title() {
+//       return _title;
+//     },
+//   };
+// }
+
 class Todo {
-  constructor(title, description, dueDate = null, priority = 1) {
+  constructor(title) {
     this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
   }
 }
 
