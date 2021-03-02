@@ -6,7 +6,7 @@ class TodoList {
 
   addTodo(todo) {
     this._list.push(todo);
-    DOMHandler.addTodo(todo);
+    DOMHandler.addItem(todo);
     return this;
   }
 
@@ -17,6 +17,7 @@ class TodoList {
     });
 
     this._list = updatedList;
+    DOMHandler.removeItem(todo);
     return this;
   }
 
