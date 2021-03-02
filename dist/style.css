@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 :root {
 }
@@ -30,18 +30,60 @@ ul {
 }
 
 h1 {
-  margin-bottom: 3rem;
+  font-size: 500;
+  margin: 2rem 0 4rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  margin: 0 auto;
+  align-items: flex-start;
 }
 
 .todo-list {
-  border: 2px solid black;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  gap: 1rem;
-  width: 30%;
+  width: 100%;
 }
 
-.todo-list > li {
-  background: grey;
-  padding: 2rem 3.5rem;
+.todo {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.todo:not(:last-child) {
+  border-bottom: 1px solid rgb(186, 183, 183);
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.add-todo {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.add-todo__btn {
+  font-size: 2.5rem;
+  padding: 0.5rem 1rem;
+}
+
+input {
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0 1rem;
+}
+
+::placeholder {
+  color: rgb(144, 144, 144);
 }
