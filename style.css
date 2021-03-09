@@ -67,6 +67,18 @@ button {
   cursor: pointer;
 }
 
+.priority-1 > button {
+  color: rgb(255, 0, 102);
+}
+
+.priority-2 > button {
+  color: rgb(255, 191, 0);
+}
+
+.priority-3 > button {
+  color: rgb(17, 255, 0);
+}
+
 .add-todo {
   display: flex;
   gap: 0.2rem;
