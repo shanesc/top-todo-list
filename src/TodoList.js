@@ -1,4 +1,5 @@
 import DOMHandler from './DOMHandler';
+import eventAggregator from './eventAggregator';
 class TodoList {
   constructor() {
     this._list = [];
@@ -6,7 +7,8 @@ class TodoList {
 
   addTodo(todo) {
     this._list.push(todo);
-    DOMHandler.addItem(todo);
+    // DOMHandler.addItem(todo);
+    eventAggregator.publish('todoAdded', todo);
     return this;
   }
 

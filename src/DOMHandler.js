@@ -1,9 +1,12 @@
+import TodoList from './TodoList';
+
 export default {
   addItem(item) {
     const todoList = document.querySelector('.todo-list');
     const el = document.createElement('li');
-    el.classList.add('todo');
     el.id = item.id;
+    el.classList.add('todo');
+    el.classList.add(`priority-${item.priority}`);
 
     const title = document.createElement('span');
     title.classList.add('todo__title');
