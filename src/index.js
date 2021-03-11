@@ -1,7 +1,5 @@
-import DOMHandler from './DOMHandler';
 import TodoList from './TodoList';
 import Todo from './Todo';
-import eventAggregator from './eventAggregator';
 
 const list = new TodoList();
 const input = document.querySelector('#title');
@@ -9,20 +7,16 @@ const addBtn = document.querySelector('.add-todo__btn');
 addBtn.addEventListener('click', () => {
   const title = input.value;
   if (title) {
-    const todo = new Todo({ title });
-    list.addTodo(todo);
+    add({ title });
     input.value = '';
   }
 });
 
-eventAggregator.subscribe('todoAdded', () => {
-  console.log('add');
-  DOMHandler.addItem(item);
-});
+function add(item) {
+  const todo = new Todo(item);
+  list.addTodo(todo);
+}
 
-list.addTodo(new Todo({ title: 'Test', priority: 1 }));
-list.addTodo(new Todo({ title: 'Test', priority: 2 }));
-list.addTodo(new Todo({ title: 'Test' }));
-
-console.log(list);
-// list.updateTodo({ title: 'Test' }, new Todo('Tester'));
+add({ title: 'Test', priority: 1 });
+add({ title: 'Test', priority: 2 });
+add({ title: 'Test' });
