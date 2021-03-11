@@ -37,7 +37,8 @@ h1 {
 .project {
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  min-width: 20vw;
+  width: 50%;
   margin: 0 auto;
   align-items: flex-start;
 }
@@ -50,8 +51,31 @@ h1 {
 
 .todo {
   display: flex;
+  align-items: center;
   gap: 1rem;
-  padding: 2rem 0;
+  height: 4rem;
+  margin: 1rem 0 0 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid transparent;
+}
+
+.todo::after {
+  content: '';
+  background: transparent;
+  width: 0.3rem;
+  height: 100%;
+  margin-left: auto;
+  border-radius: 0 2px 2px 0;
+}
+
+.priority-1::after {
+  background: rgb(255, 0, 102);
+}
+.priority-2::after {
+  background: rgb(255, 191, 0);
+}
+.priority-3::after {
+  background: rgb(17, 255, 0);
 }
 
 .todo:not(:last-child) {
@@ -65,18 +89,6 @@ button {
   background: none;
   line-height: 1;
   cursor: pointer;
-}
-
-.priority-1 > button {
-  color: rgb(255, 0, 102);
-}
-
-.priority-2 > button {
-  color: rgb(255, 191, 0);
-}
-
-.priority-3 > button {
-  color: rgb(17, 255, 0);
 }
 
 .add-todo {
