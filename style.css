@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
 :root {
+  --red: rgb(255, 0, 102);
+  --amber: rgb(255, 191, 0);
+  --green: rgb(17, 255, 0);
 }
 
 *,
@@ -69,13 +72,13 @@ h1 {
 }
 
 .priority-1::after {
-  background: rgb(255, 0, 102);
+  background: var(--red);
 }
 .priority-2::after {
-  background: rgb(255, 191, 0);
+  background: var(--amber);
 }
 .priority-3::after {
-  background: rgb(17, 255, 0);
+  background: var(--green);
 }
 
 .todo:not(:last-child) {
@@ -93,6 +96,7 @@ button {
 
 .add-todo {
   display: flex;
+  align-items: center;
   gap: 0.2rem;
 }
 
@@ -101,7 +105,7 @@ button {
   padding: 0.5rem 1rem;
 }
 
-input {
+input[type='text'] {
   border: none;
   font-family: inherit;
   font-size: inherit;
@@ -111,3 +115,46 @@ input {
 ::placeholder {
   color: rgb(144, 144, 144);
 }
+
+.radio-priority {
+  position: relative;
+  cursor: pointer;
+  padding-left: 3.5rem;
+}
+
+.radio-priority input {
+  display: none;
+}
+
+.radio-priority__checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+  height: 15px;
+  width: 25px;
+  border-radius: 5px;
+}
+
+.radio-priority__checkbox--priority-1 {
+  background-color: var(--red);
+}
+.radio-priority__checkbox--priority-2 {
+  background-color: var(--amber);
+}
+.radio-priority__checkbox--priority-3 {
+  background-color: var(--green);
+}
+
+.radio-priority input:checked ~ .radio-priority__checkbox {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+/* .radio-priority__checkbox::after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+} */
