@@ -1,5 +1,3 @@
-import TodoList from './TodoList';
-
 export default {
   addItem(item) {
     const todoList = document.querySelector('.todo-list');
