@@ -12,13 +12,20 @@
     <script defer src="main.js"></script>
   </head>
   <body>
-    <h1>Todo List</h1>
+    <h1>Get Things Done</h1>
     <main>
-      <ul class="todo-list">
-        <li class="todo">Todo</li>
-        <li class="todo">Todo 2</li>
-        <li class="todo">Todo 3</li>
-      </ul>
+      <div class="project">
+        <form action="#" class="add-todo">
+          <button type="submit" class="add-todo__btn">+</button>
+          <input
+            type="text"
+            id="title"
+            class="add-todo__title"
+            placeholder="Add task..."
+          />
+        </form>
+        <ul class="todo-list"></ul>
+      </div>
     </main>
   </body>
 </html>
