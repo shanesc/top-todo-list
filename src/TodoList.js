@@ -7,8 +7,7 @@ class TodoList {
 
   addTodo(todo) {
     this._list.push(todo);
-    // DOMHandler.addItem(todo);
-    eventAggregator.publish('todoAdded', todo);
+    DOMHandler.addItem(todo);
     return this;
   }
 
