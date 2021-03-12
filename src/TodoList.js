@@ -12,9 +12,9 @@ class TodoList {
   }
 
   deleteTodo(todo) {
-    const title = todo.title;
+    const id = todo.id;
     const updatedList = this._list.filter((todo) => {
-      return todo.title !== title;
+      return todo.id !== id;
     });
 
     this._list = updatedList;
