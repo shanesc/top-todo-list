@@ -1,15 +1,15 @@
 import TodoList from './TodoList';
-import Todo from './Todo';
-import eventAggregator from './eventAggregator';
 import DOMHandler from './DOMHandler';
+import eventAggregator from './eventAggregator';
 
 DOMHandler.eventAggregator = eventAggregator;
+DOMHandler.init();
 
 const list = new TodoList();
 
 eventAggregator.subscribe('todoAdded', (todo) => {
-  list.addTodo(todo);
-  DOMHandler.addItem(todo);
+  const el = list.addTodo(todo);
+  DOMHandler.addItem(el);
 });
 
 eventAggregator.subscribe('todoRemoved', (todo) => {
@@ -17,25 +17,6 @@ eventAggregator.subscribe('todoRemoved', (todo) => {
   DOMHandler.removeItem(todo);
 });
 
-const textInput = document.querySelector('#title');
-const addBtn = document.querySelector('.add-todo__btn');
-addBtn.addEventListener('click', () => {
-  const title = textInput.value;
-  const priorityInput = document.querySelector(
-    'input[name="priority"]:checked'
-  );
-  const priority = priorityInput ? parseInt(priorityInput.value) : 4;
-  if (title) {
-    add({ title, priority });
-    textInput.value = '';
-  }
-});
-
-function add(item) {
-  const todo = new Todo(item);
-  eventAggregator.publish('todoAdded', todo);
-}
-
-add({ title: 'Test', priority: 1 });
-add({ title: 'Test', priority: 2 });
-add({ title: 'Test' });
+eventAggregator.publish('todoAdded', { title: 'Test', priority: 1 });
+eventAggregator.publish('todoAdded', { title: 'Test', priority: 2 });
+eventAggregator.publish('todoAdded', { title: 'Test' });

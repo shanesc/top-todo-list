@@ -1,21 +1,24 @@
+import Todo from './Todo';
+
 class TodoList {
   constructor() {
     this._list = [];
   }
 
-  addTodo(todo) {
+  addTodo(item) {
+    const todo = new Todo(item);
     this._list.push(todo);
-    return this;
+    return todo;
   }
 
-  deleteTodo(todo) {
-    const id = todo.id;
-    const updatedList = this._list.filter((todo) => {
-      return todo.id !== id;
+  deleteTodo(item) {
+    const id = item.id;
+    const updatedList = this._list.filter((item) => {
+      return item.id !== id;
     });
 
     this._list = updatedList;
-    return this;
+    return item;
   }
 
   updateTodo(todo, updatedTodo) {

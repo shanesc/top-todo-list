@@ -1,4 +1,26 @@
 export default {
+  init() {
+    const add = () => {
+      const textInput = document.querySelector('#title');
+      const title = textInput.value;
+      const priorityInput = document.querySelector(
+        'input[name="priority"]:checked'
+      );
+      const priority = priorityInput
+        ? parseInt(priorityInput.value)
+        : 4;
+      if (title) {
+        this.eventAggregator.publish('todoAdded', {
+          title,
+          priority,
+        });
+        textInput.value = '';
+      }
+    };
+
+    const addBtn = document.querySelector('.add-todo__btn');
+    addBtn.addEventListener('click', add);
+  },
   addItem(item) {
     const todoList = document.querySelector('.todo-list');
     const el = document.createElement('li');
