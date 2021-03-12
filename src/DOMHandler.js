@@ -14,12 +14,17 @@ export default {
     removeEl.classList.add('btn-remove');
     removeEl.textContent = 'X';
     removeEl.addEventListener('click', () => {
-      this.removeItem.call(el);
+      this.eventAggregator.publish('todoRemoved', item);
     });
 
     el.appendChild(removeEl);
     el.appendChild(title);
     todoList.appendChild(el);
+  },
+  removeItem(item) {
+    const id = item.id;
+    const el = document.getElementById(`${id}`);
+    el.remove();
   },
   // renderList(list) {
   //   this.clearList();
@@ -38,7 +43,4 @@ export default {
   //     todoList.removeChild(todoList.lastChild);
   //   }
   // },
-  removeItem() {
-    this.remove();
-  },
 };
