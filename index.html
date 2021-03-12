@@ -15,27 +15,34 @@
     <h1>Get Things Done</h1>
     <main>
       <div class="project">
-        <form action="#" class="add-todo">
-          <button type="submit" class="add-todo__btn">+</button>
+        <form onsubmit="event.preventDefault();" class="add-todo">
+          <button
+            type="submit"
+            class="add-todo__btn"
+            aria-label="Add task"
+          >
+            +
+          </button>
           <input
             type="text"
             id="title"
             class="add-todo__title"
             placeholder="Add task..."
+            aria-label="Enter task title"
           />
-          <label class="radio-priority">
+          <label class="radio-priority" aria-label="Priority 1">
             <input type="radio" name="priority" value="1" />
             <span
               class="radio-priority__checkbox radio-priority__checkbox--priority-1"
             ></span>
           </label>
-          <label class="radio-priority">
+          <label class="radio-priority" aria-label="Priority 2">
             <input type="radio" name="priority" value="2" />
             <span
               class="radio-priority__checkbox radio-priority__checkbox--priority-2"
             ></span>
           </label>
-          <label class="radio-priority">
+          <label class="radio-priority" aria-label="Priority 3">
             <input type="radio" name="priority" value="3" />
             <span
               class="radio-priority__checkbox radio-priority__checkbox--priority-3"
