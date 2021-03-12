@@ -14,7 +14,13 @@ export default {
           title,
           priority,
         });
+
+        // clear inputs
         textInput.value = '';
+        const radioBtns = document.getElementsByName('priority');
+        radioBtns.forEach((btn) => {
+          btn.checked = false;
+        });
       }
     };
 
