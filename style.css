@@ -123,7 +123,11 @@ input[type='text'] {
 }
 
 .radio-priority input {
-  display: none;
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 2;
+  opacity: 0;
 }
 
 .radio-priority__checkbox {
@@ -149,12 +153,3 @@ input[type='text'] {
 .radio-priority input:checked ~ .radio-priority__checkbox {
   outline: -webkit-focus-ring-color auto 1px;
 }
-
-/* .radio-priority__checkbox::after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
-} */
