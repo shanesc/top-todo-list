@@ -1,7 +1,22 @@
 import TodoList from './TodoList';
 import Todo from './Todo';
+import eventAggregator from './eventAggregator';
+import DOMHandler from './DOMHandler';
+
+DOMHandler.eventAggregator = eventAggregator;
 
 const list = new TodoList();
+
+eventAggregator.subscribe('todoAdded', (todo) => {
+  list.addTodo(todo);
+  DOMHandler.addItem(todo);
+});
+
+eventAggregator.subscribe('todoRemoved', (todo) => {
+  list.deleteTodo(todo);
+  DOMHandler.removeItem(todo);
+});
+
 const textInput = document.querySelector('#title');
 const addBtn = document.querySelector('.add-todo__btn');
 addBtn.addEventListener('click', () => {
@@ -10,7 +25,6 @@ addBtn.addEventListener('click', () => {
     'input[name="priority"]:checked'
   );
   const priority = priorityInput ? parseInt(priorityInput.value) : 4;
-  console.log(priority);
   if (title) {
     add({ title, priority });
     textInput.value = '';
@@ -19,8 +33,7 @@ addBtn.addEventListener('click', () => {
 
 function add(item) {
   const todo = new Todo(item);
-  list.addTodo(todo);
-  console.log(list);
+  eventAggregator.publish('todoAdded', todo);
 }
 
 add({ title: 'Test', priority: 1 });
