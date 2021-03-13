@@ -17,6 +17,14 @@ eventAggregator.subscribe('todoRemoved', (todo) => {
   DOMHandler.removeItem(todo);
 });
 
-eventAggregator.publish('todoAdded', { title: 'Test', priority: 1 });
-eventAggregator.publish('todoAdded', { title: 'Test', priority: 2 });
-eventAggregator.publish('todoAdded', { title: 'Test' });
+eventAggregator.publish('todoAdded', {
+  title: 'Finish the app',
+  priority: 1,
+});
+eventAggregator.publish('todoAdded', {
+  title: 'Push to GH Pages',
+  priority: 2,
+});
+eventAggregator.publish('todoAdded', {
+  title: 'Keep practicing SOLID!!',
+});
